@@ -194,23 +194,46 @@ describe('Testing array case', () =>
 describe('Testing class example', () =>
 {
     it('', () => {
-        assert.equal(JSON.stringify([[{key: 'Name', value: 'binarySearch'}, {key: 'Type', value: 'function declaration'},
-            {key: 'Line', value: '1'}],[{key: 'Name', value:'n'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}],
-        [{key: 'Name', value:'V'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}], [{key: 'Name', value:'X'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}],
-        [{key: 'Name', value:'mid'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}],
-        [{key: 'Name', value:'high'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}], [{key: 'Name', value:'low'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}],
-        [{key:'Name', value:'low'},{key:'Value',value:'0'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'3'}],
-        [{key:'Name', value:'high'},{key:'Value',value:'n-1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'4'}],
-        [{key:'Condition', value:'low<=high'}, {key:'Type', value: 'while statement'},{key:'Line', value:'5'}],
-        [{key:'Name', value:'mid'},{key:'Value',value:'low+high/2'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'6'}],
-        [{key:'Condition',value:'X<V[mid]'}, {key:'Type',value:'if statement'}, {key:'Line', value:'7'}],
-        [{key:'Name', value:'high'},{key:'Value',value:'mid-1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'8'}],
-        [{key:'Condition',value:'X>V[mid]'}, {key:'Type',value:'else if statement'}, {key:'Line', value:'9'}],
-        [{key:'Name', value:'low'},{key:'Value',value:'mid+1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'10'}],
-        [{key:'Value', value:'mid'},{key:'Type', value:'return statement'}, {key:'Line',value:'12'}], [{key:'Value', value:'-1'},{key:'Type', value:'return statement'}, {key:'Line',value:'14'}]]),
-        JSON.stringify(toTable('function binarySearch(X, V, n){\n' + '    let low, high, mid;\n' + '    low = 0;\n' + '    high = n - 1;\n' + '    while (low <= high) {\n' +
-            '        mid = (low + high)/2;\n' + '        if (X < V[mid])\n' + '            high = mid - 1;\n' +
-            '        else if (X > V[mid])\n' + '            low = mid + 1;\n' + '        else\n' + '            return mid;\n' + '    }\n' + '    return -1;\n' + '}')));});});
+        try{
+            assert.equal(JSON.stringify([[{key: 'Name', value: 'binarySearch'}, {key: 'Type', value: 'function declaration'},
+                {key: 'Line', value: '1'}],[{key: 'Name', value:'n'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}],
+            [{key: 'Name', value:'V'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}], [{key: 'Name', value:'X'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}],
+            [{key: 'Name', value:'mid'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}],
+            [{key: 'Name', value:'high'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}], [{key: 'Name', value:'low'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}],
+            [{key:'Name', value:'low'},{key:'Value',value:'0'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'3'}],
+            [{key:'Name', value:'high'},{key:'Value',value:'n-1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'4'}],
+            [{key:'Condition', value:'low<=high'}, {key:'Type', value: 'while statement'},{key:'Line', value:'5'}],
+            [{key:'Name', value:'mid'},{key:'Value',value:'low+high/2'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'6'}],
+            [{key:'Condition',value:'X<V[mid]'}, {key:'Type',value:'if statement'}, {key:'Line', value:'7'}],
+            [{key:'Name', value:'high'},{key:'Value',value:'mid-1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'8'}],
+            [{key:'Condition',value:'X>V[mid]'}, {key:'Type',value:'else if statement'}, {key:'Line', value:'9'}],
+            [{key:'Name', value:'low'},{key:'Value',value:'mid+1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'10'}],
+            [{key:'Value', value:'mid'},{key:'Type', value:'return statement'}, {key:'Line',value:'12'}], [{key:'Value', value:'-1'},{key:'Type', value:'return statement'}, {key:'Line',value:'14'}]]),
+            JSON.stringify(toTable('function binarySearch(X, V, n){\n' + '    let low, high, mid;\n' + '    low = 0;\n' + '    high = n - 1;\n' + '    while (low <= high) {\n' +
+                '        mid = (low + high)/2;\n' + '        if (X < V[mid])\n' + '            high = mid - 1;\n' +
+                '        else if (X > V[mid])\n' + '            low = mid + 1;\n' + '        else\n' + '            return mid;\n' + '    }\n' + '    return -1;\n' + '}')));
+        }
+        catch(err){
+            assert.equal(JSON.stringify([[{key: 'Name', value: 'binarySearch'}, {key: 'Type', value: 'function declaration'},
+                {key: 'Line', value: '1'}],[{key: 'Name', value:'n'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}],
+            [{key: 'Name', value:'V'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}], [{key: 'Name', value:'X'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'1'}],
+            [{key: 'Name', value:'high'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}], [{key: 'Name', value:'low'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}],
+            [{key: 'Name', value:'mid'}, {key:'Type', value:'variable declaration'}, {key:'Line',value:'2'}],
+            [{key:'Name', value:'low'},{key:'Value',value:'0'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'3'}],
+            [{key:'Name', value:'high'},{key:'Value',value:'n-1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'4'}],
+            [{key:'Condition', value:'low<=high'}, {key:'Type', value: 'while statement'},{key:'Line', value:'5'}],
+            [{key:'Name', value:'mid'},{key:'Value',value:'low+high/2'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'6'}],
+            [{key:'Condition',value:'X<V[mid]'}, {key:'Type',value:'if statement'}, {key:'Line', value:'7'}],
+            [{key:'Name', value:'high'},{key:'Value',value:'mid-1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'8'}],
+            [{key:'Condition',value:'X>V[mid]'}, {key:'Type',value:'else if statement'}, {key:'Line', value:'9'}],
+            [{key:'Name', value:'low'},{key:'Value',value:'mid+1'},{key:'Type', value:'assignment expression'}, {key:'Line',value:'10'}],
+            [{key:'Value', value:'mid'},{key:'Type', value:'return statement'}, {key:'Line',value:'12'}], [{key:'Value', value:'-1'},{key:'Type', value:'return statement'}, {key:'Line',value:'14'}]]),
+            JSON.stringify(toTable('function binarySearch(X, V, n){\n' + '    let low, high, mid;\n' + '    low = 0;\n' + '    high = n - 1;\n' + '    while (low <= high) {\n' +
+                '        mid = (low + high)/2;\n' + '        if (X < V[mid])\n' + '            high = mid - 1;\n' +
+                '        else if (X > V[mid])\n' + '            low = mid + 1;\n' + '        else\n' + '            return mid;\n' + '    }\n' + '    return -1;\n' + '}')));   
+        }
+        
+        });});
 
 
 describe('Testing nested expression', () => {
